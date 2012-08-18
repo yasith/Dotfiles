@@ -19,3 +19,6 @@ set laststatus=2
 " powerline needs unicode chars
 set encoding=utf-8
 
+" for solarized color scheme
+set background=dark
+colorscheme solarized

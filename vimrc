@@ -16,3 +16,6 @@ set nu
 " to make powerline visible
 set laststatus=2
 
+" powerline needs unicode chars
+set encoding=utf-8
+

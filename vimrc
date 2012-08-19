@@ -28,3 +28,13 @@ let g:Powerline_symbols = 'fancy'
 " for solarized color scheme
 set background=dark
 colorscheme solarized
+
+" disable arrow keys
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>

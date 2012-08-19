@@ -1,3 +1,6 @@
+" not compatible with vi
+set nocompatible
+
 " start pathogen with the default dir ~/.vim/bundle
 call pathogen#infect()
 
@@ -18,6 +21,9 @@ set laststatus=2
 
 " powerline needs unicode chars
 set encoding=utf-8
+
+" triangular stuff for powerline
+let g:Powerline_symbols = 'fancy'
 
 " for solarized color scheme
 set background=dark

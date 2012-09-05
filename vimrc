@@ -38,3 +38,17 @@ imap <up> <nop>
 imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
+
+" highlight matches, incremental searches, case insensitive unless mixed
+set hlsearch incsearch ignorecase smartcase
+
+" set leader to ,
+let mapleader=","
+
+" toggle for NERDTree
+nmap <leader>n NERDTreeToggle
+
+" mappings for ctrlp.vim
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+

@@ -26,6 +26,7 @@ set encoding=utf-8
 let g:Powerline_symbols = 'fancy'
 
 " for solarized color scheme
+set t_Co=16
 set background=dark
 colorscheme solarized
 
@@ -46,9 +47,15 @@ set hlsearch incsearch ignorecase smartcase
 let mapleader=","
 
 " toggle for NERDTree
-nmap <leader>n NERDTreeToggle
+nmap <leader>n <ESC>:NERDTreeToggle<CR>
 
 " mappings for ctrlp.vim
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+
+" files to ignore for ctrlp
+set wildignore+=*.so,*.swp,*.zip,*.pyc
+
+" Set cryptmethod to blowfish
+setlocal cm=blowfish
 

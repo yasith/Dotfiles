@@ -4,7 +4,15 @@
 ! remove scrollbar
 URxvt.scrollBar: false
 
+! Set the background color
 URxvt.background: #002b36
+
+! Set the default fonts to Monaco w/ Powerline symbols
+URxvt*font:                 xft:Monaco\ for\ Powerline:regular:size=8
+URxvt*imFont:               xft:Monaco\ for\ Powerline:regular:size=8
+URxvt*boldFont:             xft:Monaco\ for\ Powerline:bold:size=8
+URxvt*italicFont:           xft:Monaco\ for\ Powerline:italic:size=8
+URxvt*boldItalicFont:       xft:Monaco\ for\ Powerline:bold:italic:size=8
 
 !! Solarized colorscheme for Xresources
 

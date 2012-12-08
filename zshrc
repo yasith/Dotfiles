@@ -44,8 +44,8 @@ export PATH=/home/yasith/.gem/ruby/1.9.1/bin:$PATH
 export PATH=$PATH:/usr/bin/vendor_perl
 alias ls="ls++"
 
-# update the xmodmap file, not sure why it's not being done from .xinitrc
-# xmodmap ~/.Xmodmap
-
 # disable the system bell
 xset -b
+
+# export JAVA_HOME so the Sun jdk will be used
+export JAVA_HOME=/home/yasith/coding/jdk1.6.0_34/bin

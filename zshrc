@@ -10,6 +10,7 @@ ZSH_THEME="blinks"
 # Aliases
 alias tmux="tmux -2"
 alias python="python2"
+alias open="xdg-open &> /dev/null" # OSX like open for any type of file
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"

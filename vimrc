@@ -1,8 +1,27 @@
 " not compatible with vi
 set nocompatible
 
-" start pathogen with the default dir ~/.vim/bundle
-call pathogen#infect()
+" turn off filetype for Vundle to work
+filetype off
+
+" Make vundle work
+set rtp+=~/dotfiles/vim/bundle/vundle
+call vundle#rc()
+
+" Repos from github - used by vundle
+Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
+Bundle 'msanders/snipmate.vim'
+Bundle 'ervandew/supertab'
+Bundle 'scrooloose/syntastic'
+Bundle 'majutsushi/tagbar'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'tpope/vim-surround'
+
+" Update bundles with :BundleInstall
+
 
 " enable filetype plugin and indentation
 filetype plugin indent on

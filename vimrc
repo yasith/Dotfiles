@@ -17,11 +17,11 @@ Bundle 'ervandew/supertab'
 Bundle 'scrooloose/syntastic'
 Bundle 'majutsushi/tagbar'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'tpope/vim-vividchalk'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'tpope/vim-surround'
 
 " Update bundles with :BundleInstall
-
 
 " enable filetype plugin and indentation
 filetype plugin indent on
@@ -45,9 +45,9 @@ set encoding=utf-8
 let g:Powerline_symbols = 'fancy'
 
 " for solarized color scheme
-set t_Co=16
+"set t_Co=16
 set background=dark
-colorscheme solarized
+"colorscheme vividchalk
 
 " disable arrow keys
 map <up> <nop>

@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+ZSH=$HOME/dotfiles/oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -9,7 +9,6 @@ ZSH_THEME="blinks"
 
 # Aliases
 alias tmux="tmux -2"
-alias open="xdg-open &> /dev/null" # OSX like open for any type of file
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -33,24 +32,16 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# set the PATH for Java
-export PATH=/home/yasith/coding/jdk1.6.0_34/bin:$PATH
-
-# set the PATH for ruby gem executables
-export PATH=/home/yasith/.gem/ruby/1.9.1/bin:$PATH
-
 # set the PATH for ls++
 # Install via AUR
-export PATH=$PATH:/usr/bin/vendor_perl
-alias ls="ls++"
-
-# disable the system bell
-xset -b
+# export PATH=$PATH:/usr/bin/vendor_perl
+# alias ls="ls++"
 
 # export JAVA_HOME so the Sun jdk will be used
-export JAVA_HOME=/home/yasith/coding/jdk1.6.0_34/bin
+# export JAVA_HOME=/home/yasith/coding/jdk1.6.0_34/bin
+#
+# set the PATH for Java
+# export PATH=/home/yasith/coding/jdk1.6.0_34/bin:$PATH
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-# for RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+# use homebrew's apps before pre-installed mac apps
+export PATH="/usr/local/bin:$PATH"

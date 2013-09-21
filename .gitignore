@@ -6,3 +6,7 @@ xmonad/xmonad.o
 
 # swapfiles
 *.swp
+
+# All bundles that we download with vundle
+vim/bundle/*
+!vim/bundle/vundle

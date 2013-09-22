@@ -45,3 +45,5 @@ source $ZSH/oh-my-zsh.sh
 
 # use homebrew's apps before pre-installed mac apps
 export PATH="/usr/local/bin:$PATH"
+
+export ANDROID_HOME="/Applications/Android Studio.app/sdk"

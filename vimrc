@@ -80,3 +80,9 @@ set wildignore+=*.so,*.swp,*.zip,*.pyc
 " Set cryptmethod to blowfish
 setlocal cm=blowfish
 
+" VIM doesn't detect these extensions
+" .S files as assembly files
+au BufNewFile,BufRead *.S set ft=nasm
+" .gradle files as groovy files (for syntax)
+au BufNewFile,BufRead *.gradle set ft=groovy
+

@@ -22,6 +22,7 @@ Bundle 'tpope/vim-surround'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "garbas/vim-snipmate"
+Bundle "elzr/vim-json"
 
 " Update bundles with :BundleInstall
 
@@ -85,4 +86,5 @@ setlocal cm=blowfish
 au BufNewFile,BufRead *.S set ft=nasm
 " .gradle files as groovy files (for syntax)
 au BufNewFile,BufRead *.gradle set ft=groovy
-
+" .json files need syntax highlighting too!
+au BufNewFile,BufRead *.json set ft=json

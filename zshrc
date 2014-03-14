@@ -9,6 +9,7 @@ ZSH_THEME="blinks"
 
 # Aliases
 alias tmux="tmux -2"
+alias psql="/Applications/Postgres93.app/Contents/MacOs/bin/psql; exit;"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -46,4 +47,6 @@ source $ZSH/oh-my-zsh.sh
 # use homebrew's apps before pre-installed mac apps
 export PATH="/usr/local/bin:$PATH"
 
+# Set Android Home
 export ANDROID_HOME="/Applications/Android Studio.app/sdk"
+

@@ -9,20 +9,22 @@ set rtp+=~/dotfiles/vim/bundle/vundle
 call vundle#rc()
 
 " Repos from github - used by vundle
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'ervandew/supertab'
+Bundle "elzr/vim-json"
+Bundle "exu/pgsql.vim"
+Bundle 'garbas/vim-snipmate'
 Bundle 'kien/ctrlp.vim'
+Bundle 'kevinw/pyflakes-vim'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'majutsushi/tagbar'
+Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
-Bundle 'ervandew/supertab'
 Bundle 'scrooloose/syntastic'
-Bundle 'majutsushi/tagbar'
-Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-vividchalk'
-Bundle 'Lokaltog/vim-powerline'
 Bundle 'tpope/vim-surround'
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "garbas/vim-snipmate"
-Bundle "elzr/vim-json"
+Bundle 'tomtom/tlib_vim'
 
 " Update bundles with :BundleInstall
 
@@ -88,3 +90,6 @@ au BufNewFile,BufRead *.S set ft=nasm
 au BufNewFile,BufRead *.gradle set ft=groovy
 " .json files need syntax highlighting too!
 au BufNewFile,BufRead *.json set ft=json
+" .sql files are postgres files for me
+au BufNewFile,BufRead *.sql set ft=pgsql
+

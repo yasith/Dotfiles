@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+ZSH=$HOME/Dotfiles/oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -34,23 +34,22 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # set the PATH for Java
-export PATH=/home/yasith/coding/jdk1.6.0_34/bin:$PATH
+export PATH=/usr/lib/java/jdk1.8.0_20/bin:$PATH
 
 # set the PATH for ruby gem executables
-export PATH=/home/yasith/.gem/ruby/1.9.1/bin:$PATH
+# export PATH=/home/yasith/.gem/ruby/1.9.1/bin:$PATH
 
 # set the PATH for ls++
 # Install via AUR
-export PATH=$PATH:/usr/bin/vendor_perl
-alias ls="ls++"
+# export PATH=$PATH:/usr/bin/vendor_perl
+# alias ls="ls++"
 
 # disable the system bell
 xset -b
 
 # export JAVA_HOME so the Sun jdk will be used
-export JAVA_HOME=/home/yasith/coding/jdk1.6.0_34/bin
+export JAVA_HOME=/usr/lib/java/jdk1.8.0_20
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
+# PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 # for RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"

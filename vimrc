@@ -5,7 +5,7 @@ set nocompatible
 filetype off
 
 " Make vundle work
-set rtp+=~/dotfiles/vim/bundle/vundle
+set rtp+=~/Dotfiles/vim/bundle/vundle
 call vundle#rc()
 
 " Repos from github - used by vundle
@@ -16,9 +16,9 @@ Bundle 'msanders/snipmate.vim'
 Bundle 'ervandew/supertab'
 Bundle 'scrooloose/syntastic'
 Bundle 'majutsushi/tagbar'
-Bundle 'altercation/vim-colors-solarized'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'tpope/vim-surround'
+Bundle 'flazz/vim-colorschemes'
 
 " Update bundles with :BundleInstall
 
@@ -44,10 +44,9 @@ set encoding=utf-8
 " triangular stuff for powerline
 let g:Powerline_symbols = 'fancy'
 
-" for solarized color scheme
+" make vim look better
 set t_Co=16
 set background=dark
-colorscheme solarized
 
 " disable arrow keys
 map <up> <nop>

@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/Dotfiles/oh-my-zsh 
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -21,12 +22,15 @@ alias psql="/Applications/Postgres93.app/Contents/MacOs/bin/psql; exit;"
 
 # Uncomment following line if you want to disable autosetting terminal title.
 # DISABLE_AUTO_TITLE="true"
-# Uncomment following line if you want red dots to be displayed while waiting for completion # COMPLETION_WAITING_DOTS="true" # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*) # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/ # Example format: plugins=(rails git textmate ruby lighthouse) plugins=(git) source $ZSH/oh-my-zsh.sh
+# Uncomment following line if you want red dots to be displayed while waiting for completion 
+# COMPLETION_WAITING_DOTS="true" 
 
-# set the PATH for ls++
-# Install via AUR
-# export PATH=$PATH:/usr/bin/vendor_perl
-# alias ls="ls++"
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*) 
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse) 
+
+plugins=(git) 
+source $ZSH/oh-my-zsh.sh
 
 # use homebrew's apps before pre-installed mac apps
 export PATH="/usr/local/bin:$PATH"

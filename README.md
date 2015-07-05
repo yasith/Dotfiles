@@ -11,6 +11,13 @@ eg.
 ln -s dotfiles/vimrc .vimrc
 ```
 
+Update the submodules, (Vundle and OhMyZsh)
+
+```
+git submodule init
+git submodule update
+```
+
 Other Software to Install
 =========================
 

@@ -1,5 +1,8 @@
+# Alias for reloading the zshrc file
+alias zshrc="source ~/.zshrc"
+
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/Dotfiles/oh-my-zsh
+ZSH=$HOME/dotfiles/oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -21,7 +24,7 @@ alias open="xdg-open &> /dev/null" # OSX like open for any type of file
 # DISABLE_LS_COLORS="true"
 
 # Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
+ DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
@@ -33,23 +36,22 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# set the PATH for Java
-export PATH=/usr/lib/java/jdk1.8.0_20/bin:$PATH
-
-# set the PATH for ruby gem executables
-# export PATH=/home/yasith/.gem/ruby/1.9.1/bin:$PATH
-
-# set the PATH for ls++
-# Install via AUR
-# export PATH=$PATH:/usr/bin/vendor_perl
-# alias ls="ls++"
-
 # disable the system bell
 xset -b
 
-# export JAVA_HOME so the Sun jdk will be used
-export JAVA_HOME=/usr/lib/java/jdk1.8.0_20
+# Google specific shortcuts
 
-# PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-# for RVM
-# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+# Git5 shortcuts
+alias g5="git5"
+alias gs="git5 sync"
+alias ge="git5 export"
+alias gm="git5 mail"
+
+# For ASwB
+export STUDIO_VM_OPTIONS=~/.studio64.vmoptions
+alias aswb="/opt/android-studio-with-blaze-current/bin/studio-launcher.sh"
+
+# Crow (Android emulator)
+fpath=(/google/data/ro/teams/mobile_eng_prod/crow $fpath)
+compdef _crow /google/data/ro/teams/mobile_eng_prod/crow/crow.par
+alias crow=/google/data/ro/teams/mobile_eng_prod/crow/crow.par

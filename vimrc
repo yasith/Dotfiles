@@ -5,7 +5,7 @@ set nocompatible
 filetype off
 
 " Make vundle work
-set rtp+=~/Dotfiles/vim/bundle/vundle
+set rtp+=~/dotfiles/vim/bundle/vundle
 call vundle#rc()
 
 " Repos from github - used by vundle

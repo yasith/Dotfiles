@@ -55,3 +55,12 @@ alias aswb="/opt/android-studio-with-blaze-current/bin/studio-launcher.sh"
 fpath=(/google/data/ro/teams/mobile_eng_prod/crow $fpath)
 compdef _crow /google/data/ro/teams/mobile_eng_prod/crow/crow.par
 alias crow=/google/data/ro/teams/mobile_eng_prod/crow/crow.par
+
+# Enable adb.turbo go/adb.turbo
+function adb() {
+  EMU_DEPS=/google/data/ro/teams/mobile_eng_prod/emu/live/google3/
+  ANDROID_SDK=${EMU_DEPS}/third_party/java/android/android_sdk_linux/
+  EMU_SUPPORT=${EMU_DEPS}/tools/android/emulator/support/
+  ANDROID_ADB=${ANDROID_SDK}/platform-tools/adb
+  ANDROID_ADB=${ANDROID_ADB} $EMU_SUPPORT/adb.turbo "$@"
+}

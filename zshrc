@@ -41,15 +41,23 @@ xset -b
 
 # Google specific shortcuts
 
+# Easy prodaccess
+alias pa="prodaccess"
+
 # Git5 shortcuts
 alias g5="git5"
 alias gs="git5 sync"
-alias ge="git5 export"
+alias ge="git5 export -d \"\""
 alias gm="git5 mail"
+alias gl="git5 lint"
+alias gf="git5 fix"
+alias gps="git5 export -p all --tap-options=detach,email --ignore-presubmit-warnings"
 
 # For ASwB
 export STUDIO_VM_OPTIONS=~/.studio64.vmoptions
 alias aswb="/opt/android-studio-with-blaze-current/bin/studio-launcher.sh"
+# When you want to kill ASwB when Chromoting
+alias killaswb='ps -Af | egrep "aswb|blaze" | awk '\''{print $2}'\'' | xargs kill -9'
 
 # Crow (Android emulator)
 fpath=(/google/data/ro/teams/mobile_eng_prod/crow $fpath)
@@ -61,6 +69,18 @@ function adb() {
   EMU_DEPS=/google/data/ro/teams/mobile_eng_prod/emu/live/google3/
   ANDROID_SDK=${EMU_DEPS}/third_party/java/android/android_sdk_linux/
   EMU_SUPPORT=${EMU_DEPS}/tools/android/emulator/support/
-  ANDROID_ADB=${ANDROID_SDK}/platform-tools/adb
+  ANDROID_ADB=/usr/bin/adb
   ANDROID_ADB=${ANDROID_ADB} $EMU_SUPPORT/adb.turbo "$@"
 }
+
+# Tricoder
+alias tricoder="/google/data/ro/teams/tricorder/tricorder"
+
+# Jetstream builds
+alias jsbuild="blaze build java/com/google/android/apps/access/wifi/consumer/app:jetstream_debug"
+alias jsdeploy="adb install -r blaze-bin/java/com/google/android/apps/access/wifi/consumer/app/jetstream_debug.apk"
+alias jsrun="adb shell monkey -p com.google.android.apps.access.wifi.consumer 1"
+alias bdr="jsbuild && jsdeploy && jsrun"
+
+# For tmux
+alias ta="tmux attach-session -t "

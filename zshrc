@@ -64,6 +64,9 @@ fpath=(/google/data/ro/teams/mobile_eng_prod/crow $fpath)
 compdef _crow /google/data/ro/teams/mobile_eng_prod/crow/crow.par
 alias crow=/google/data/ro/teams/mobile_eng_prod/crow/crow.par
 
+# F5 (Fast incremental builds)
+f5(){ ${PWD%${PWD#*google3}}/tools/android/f5/bin/f5.sh "$@"; }
+
 # Enable adb.turbo go/adb.turbo
 function adb() {
   EMU_DEPS=/google/data/ro/teams/mobile_eng_prod/emu/live/google3/
@@ -80,6 +83,11 @@ alias tricoder="/google/data/ro/teams/tricorder/tricorder"
 alias jsbuild="blaze build java/com/google/android/apps/access/wifi/consumer/app:jetstream_debug"
 alias jsdeploy="adb install -r blaze-bin/java/com/google/android/apps/access/wifi/consumer/app/jetstream_debug.apk"
 alias jsrun="adb shell monkey -p com.google.android.apps.access.wifi.consumer 1"
+alias b="jsbuild"
+alias d="jsdeploy"
+alias r="jsrun"
+alias bd="jsbuild && jsdeploy"
+alias dr="jsdeploy && jsrun"
 alias bdr="jsbuild && jsdeploy && jsrun"
 
 # For tmux

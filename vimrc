@@ -12,13 +12,18 @@ call vundle#rc()
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
-Bundle 'msanders/snipmate.vim'
 Bundle 'ervandew/supertab'
+Bundle 'garbas/vim-snipmate'
 Bundle 'scrooloose/syntastic'
 Bundle 'majutsushi/tagbar'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'tpope/vim-surround'
 Bundle 'flazz/vim-colorschemes'
+
+" For snipmate
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'garbas/vim-snipmate'
 
 " Update bundles with :BundleInstall
 

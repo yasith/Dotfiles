@@ -1,6 +1,6 @@
 [user]
 	name = Yasith Vidanaarachchi
-	email = yasith.vidanaarachchi@gmail.com
+	email = yasith@google.com
 [diff]
 	tool = vimdiff
 [difftool]
@@ -9,3 +9,12 @@
 	d = difftool
 [push]
 	default = simple
+[color]
+	ui = auto
+[repo]
+	superprojectChoiceExpire = 1634659196
+	superprojectChoice = true
+[merge]
+	renameLimit = 999999
+[diff]
+	renameLimit = 999999

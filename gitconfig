@@ -6,15 +6,24 @@
 [difftool]
 	prompt = false
 [alias]
-	d = difftool
+  st = status
+	d = diff
+  ds = diff --cached
+  dh = diff HEAD
+  dt = difftool
+  co = checkout
+  ci = commit
+  cia = commit --all --amend --no-edit
 [push]
 	default = simple
 [color]
 	ui = auto
 [repo]
-	superprojectChoiceExpire = 1634659196
+	superprojectChoiceExpire = 1637705459
 	superprojectChoice = true
 [merge]
 	renameLimit = 999999
 [diff]
 	renameLimit = 999999
+[http]
+	cookiefile = /usr/local/google/home/yasith/.gitcookies

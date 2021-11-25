@@ -37,7 +37,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # disable the system bell
-xset -b
+# xset -b
 
 # Google specific shortcuts
 
@@ -60,9 +60,20 @@ alias aswb="/opt/android-studio-with-blaze-current/bin/studio-launcher.sh"
 alias killaswb='ps -Af | egrep "aswb|blaze" | awk '\''{print $2}'\'' | xargs kill -9'
 
 # Crow (Android emulator)
-fpath=(/google/data/ro/teams/mobile_eng_prod/crow $fpath)
-compdef _crow /google/data/ro/teams/mobile_eng_prod/crow/crow.par
-alias crow=/google/data/ro/teams/mobile_eng_prod/crow/crow.par
+fpath=(/google/bin/releases/mobile-devx-platform/crow $fpath)
+compdef _crow /google/bin/releases/mobile-devx-platform/crow/crow.par
+alias crow=/google/bin/releases/mobile-devx-platform/crow/crow.par
+
+# Acid 
+alias acid=/google/bin/releases/mobile-devx-platform/acid/acid
+alias acid_install_camera="acid install ~/androidx-main/out/androidx/camera/integration-tests/camera-testapp-core/build/outputs/apk/debug/camera-testapp-core-debug.apk"
+
+# Logcolors
+alias logcolors="blaze run experimental/users/mueez/logcolors/local"
+alias lc="adb logcat | logcolors"
+
+# Fig
+source /etc/bash_completion.d/hgd
 
 # F5 (Fast incremental builds)
 f5(){ ${PWD%${PWD#*google3}}/tools/android/f5/bin/f5.sh "$@"; }
@@ -79,16 +90,6 @@ function adb() {
 # Tricoder
 alias tricoder="/google/data/ro/teams/tricorder/tricorder"
 
-# Jetstream builds
-alias jsbuild="blaze build java/com/google/android/apps/access/wifi/consumer/app:jetstream_debug"
-alias jsdeploy="adb install -r blaze-bin/java/com/google/android/apps/access/wifi/consumer/app/jetstream_debug.apk"
-alias jsrun="adb shell monkey -p com.google.android.apps.access.wifi.consumer 1"
-alias b="jsbuild"
-alias d="jsdeploy"
-alias r="jsrun"
-alias bd="jsbuild && jsdeploy"
-alias dr="jsdeploy && jsrun"
-alias bdr="jsbuild && jsdeploy && jsrun"
-
 # For tmux
 alias ta="tmux attach-session -t "
+alias tad="tmux -CC attach -t dev"

@@ -7,13 +7,14 @@
 	prompt = false
 [alias]
   st = status
-	d = diff
+  d = diff
   ds = diff --cached
   dh = diff HEAD
   dt = difftool
   co = checkout
   ci = commit
   cia = commit --all --amend --no-edit
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [push]
 	default = simple
 [color]
@@ -27,3 +28,8 @@
 	renameLimit = 999999
 [http]
 	cookiefile = /usr/local/google/home/yasith/.gitcookies
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

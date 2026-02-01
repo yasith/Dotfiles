@@ -1,11 +1,17 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
 [user]
 	name = Yasith Vidanaarachchi
 	email = yasith.vidanaarachchi@gmail.com
-[diff]
-	tool = vimdiff
-[difftool]
-	prompt = false
+
 [alias]
-	d = difftool
-[push]
-	default = simple
+  br = branch --list
+  co  = checkout
+  ci  = commit
+  cia = commit -a --amend
+  st  = status
+  d   = diff
+  l   = log --oneline --graph --decorate

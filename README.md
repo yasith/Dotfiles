@@ -1,46 +1,33 @@
-Configurations
-==============
+# Dotfiles
 
-These are configuration files for my Linux system. Should work with any Unix-like environment
+Personal configuration files for macOS, managed with symlinks.
 
-All the files in this directory should be sym-linked to a . file in the home dir
+## What's included
 
-eg.
+- **Ghostty** — terminal keybindings and macOS settings
+- **fish** — shell config with Starship prompt, conda, tmux helpers, and git worktree workflow
+- **tmux** — `Ctrl+A` prefix, alt-key navigation, minimalist status bar, resurrect/continuum plugins
+- **Neovim** — AstroNvim-based config with Lazy.nvim, Treesitter, Mason, and none-ls
+- **Git** — LFS, aliases (`st`, `d`, `l`, `co`, `ci`, `cia`, `br`)
+- **Claude Code** — permissions for common CLI tools, plugins, co-author attribution disabled
 
-```
-ln -s dotfiles/vimrc .vimrc
-```
+## Setup
 
-Update the git submodules with.
-
-```
-git submodule update --init 
-```
-
-Other Software to Install
-=========================
-
-Install yaourt for easier package management
-
-Place this code in /etc/pacman.conf
-
-```
-# For yaourt
-[archlinuxfr]
-Server = http://repo.archlinux.fr/x86_64
+```bash
+git clone https://github.com/yasith/Dotfiles.git
+cd Dotfiles
+./setup.sh
 ```
 
-Install ntpd to keep system clock in sync
+This symlinks each config to its correct location on the filesystem. Existing files are backed up to `.bak`.
 
+## Config mapping
 
-Theme Details - For Gnome Shell
-===============================
-
-gnome-tweak-tool to manage the themes
-
-Themes installed from AUR
-
-- Zukitwo for Gnome Shell Theme
-- Faenza icon theme
-- Faience GTK+ and window theme
-- Droid Sans 10pt, and 9pt fonts
+| Repo path | Target |
+|-----------|--------|
+| `ghostty/config` | `~/.config/ghostty/config` |
+| `fish/` | `~/.config/fish/` (individual files) |
+| `tmux.conf` | `~/.tmux.conf` |
+| `nvim/` | `~/.config/nvim` (whole directory) |
+| `gitconfig` | `~/.gitconfig` |
+| `claude/settings.json` | `~/.claude/settings.json` |

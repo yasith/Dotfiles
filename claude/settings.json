@@ -28,9 +28,14 @@
       "Bash(which *)",
       "Bash(brew *)",
       "Bash(diff *)",
-      "mcp__plugin_serena_serena__*"
+      "mcp__plugin_serena_serena__*",
+      "WebSearch"
     ],
     "deny": []
   },
-  "commitCoAuthor": false
+  "env": {
+    "EDITOR": "nvim"
+  },
+  "commitCoAuthor": false,
+  "plansDirectory": ".claude/plans"
 }

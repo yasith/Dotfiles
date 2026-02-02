@@ -12,6 +12,3 @@
   co  = checkout
   ci  = commit
   cia = commit -a --amend
-  st  = status
-  d   = diff
-  l   = log --oneline --graph --decorate

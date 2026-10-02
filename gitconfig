@@ -12,3 +12,26 @@
   co  = checkout
   ci  = commit
   cia = commit -a --amend
+  st = status
+  dt = difftool
+[diff]
+	tool = meld
+[difftool]
+	prompt = false
+[core]
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	dark = true
+  side-by-side = true
+  line-numbers = true
+[merge]
+	conflictStyle = zdiff3
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential

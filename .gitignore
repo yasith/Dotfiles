@@ -10,3 +10,5 @@ xmonad/xmonad.o
 # All bundles that we download with vundle
 vim/bundle/*
 !vim/bundle/vundle
+
+.DS_Store

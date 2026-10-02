@@ -143,3 +143,10 @@ function tmux-remove-git-worktree
 end
 
 alias ttrm="tmux-remove-git-worktree"
+
+
+# Added by Antigravity CLI installer
+set -gx PATH "/Users/yasith/.local/bin" $PATH
+
+# Added by Antigravity IDE
+fish_add_path /Users/yasith/.antigravity-ide/antigravity-ide/bin

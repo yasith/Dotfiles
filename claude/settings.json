@@ -1,11 +1,13 @@
 {
-  "enabledPlugins": {
-    "frontend-design@claude-plugins-official": true,
-    "serena@claude-plugins-official": true,
-    "playwright@claude-plugins-official": true,
-    "code-simplifier@claude-plugins-official": true,
-    "vercel@claude-plugins-official": true
+  "env": {
+    "EDITOR": "nvim",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
   },
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "includeCoAuthoredBy": false,
   "permissions": {
     "allow": [
       "Bash(git *)",
@@ -29,13 +31,62 @@
       "Bash(brew *)",
       "Bash(diff *)",
       "mcp__plugin_serena_serena__*",
+      "mcp__context7__*",
       "WebSearch"
     ],
-    "deny": []
+    "deny": [],
+    "defaultMode": "auto"
   },
-  "env": {
-    "EDITOR": "nvim"
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "osascript -e 'display notification \"Claude Code needs your attention\" with title \"Claude Code\"'"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "osascript -e 'display notification \"Task completed\" with title \"Claude Code\"'"
+          }
+        ]
+      }
+    ]
   },
-  "commitCoAuthor": false,
-  "plansDirectory": ".claude/plans"
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "vercel@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "plannotator@plannotator": true,
+    "shopify-ai-toolkit@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "dagster": {
+      "source": {
+        "source": "github",
+        "repo": "dagster-io/skills"
+      }
+    },
+    "plannotator": {
+      "source": {
+        "source": "github",
+        "repo": "backnotprop/plannotator"
+      }
+    }
+  },
+  "effortLevel": "xhigh",
+  "plansDirectory": ".claude/plans",
+  "tui": "fullscreen",
+  "skipDangerousModePermissionPrompt": true,
+  "agentPushNotifEnabled": true,
+  "skipAutoPermissionPrompt": true
 }

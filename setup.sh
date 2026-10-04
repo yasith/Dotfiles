@@ -69,6 +69,9 @@ echo ""
 # Ghostty
 link "$DOTFILES_DIR/ghostty/config" "$HOME/.config/ghostty/config"
 
+# Herdr
+link "$DOTFILES_DIR/herdr/config.toml" "$HOME/.config/herdr/config.toml"
+
 # Fish
 link "$DOTFILES_DIR/fish/config.fish"                    "$HOME/.config/fish/config.fish"
 link "$DOTFILES_DIR/fish/fish_variables"                  "$HOME/.config/fish/fish_variables"

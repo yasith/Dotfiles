@@ -4,6 +4,7 @@ Personal configuration files for macOS, managed with symlinks.
 
 ## What's included
 
+- **Herdr** - prefix-free `Alt+t` for a new tab, `Alt+n`/`Alt+p` for next/previous spaces, and `Alt+j`/`Alt+k` for previous/next tabs
 - **Ghostty** — terminal keybindings and macOS settings
 - **fish** — shell config with Starship prompt, conda, tmux helpers, and git worktree workflow
 - **tmux** — `Ctrl+A` prefix, alt-key navigation, minimalist status bar, resurrect/continuum plugins
@@ -27,6 +28,7 @@ This symlinks each config to its correct location on the filesystem. Existing fi
 | Repo path | Target |
 |-----------|--------|
 | `ghostty/config` | `~/.config/ghostty/config` |
+| `herdr/config.toml` | `~/.config/herdr/config.toml` |
 | `fish/` | `~/.config/fish/` (individual files) |
 | `tmux.conf` | `~/.tmux.conf` |
 | `nvim/` | `~/.config/nvim` (whole directory) |

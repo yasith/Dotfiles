@@ -19,6 +19,7 @@ This creates symlinks from the repo to the filesystem. It backs up existing file
 | Repo path | Symlink target |
 |-----------|---------------|
 | `ghostty/config` | `~/.config/ghostty/config` |
+| `herdr/config.toml` | `~/.config/herdr/config.toml` |
 | `fish/config.fish` | `~/.config/fish/config.fish` |
 | `fish/fish_variables` | `~/.config/fish/fish_variables` |
 | `fish/conf.d/*.fish` | `~/.config/fish/conf.d/*.fish` (individual files) |

@@ -1,0 +1,14 @@
+onboarding = false
+
+[keys]
+new_tab = "alt+t"
+next_workspace = "alt+n"
+previous_workspace = "alt+p"
+previous_tab = "alt+j"
+next_tab = "alt+k"
+
+[ui]
+status_indicators = "dots"
+
+[ui.toast]
+delivery = "system"

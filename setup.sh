@@ -12,6 +12,7 @@ NC='\033[0m'
 link() {
     local src="$1"
     local dest="$2"
+    local backup="${3:-${dest}.bak}"
 
     # Create parent directory if needed
     mkdir -p "$(dirname "$dest")"
@@ -26,14 +27,41 @@ link() {
         echo -e "${YELLOW}[update]${NC} $dest (was -> $current_target)"
         rm "$dest"
     elif [ -e "$dest" ]; then
-        echo -e "${YELLOW}[backup]${NC} $dest -> ${dest}.bak"
-        mv "$dest" "${dest}.bak"
+        if [ -e "$backup" ] || [ -L "$backup" ]; then
+            echo -e "${RED}[error]${NC} Backup already exists: $backup" >&2
+            return 1
+        fi
+        mkdir -p "$(dirname "$backup")"
+        echo -e "${YELLOW}[backup]${NC} $dest -> $backup"
+        mv "$dest" "$backup"
     else
         echo -e "${GREEN}[link]${NC} $dest -> $src"
     fi
 
     ln -s "$src" "$dest"
 }
+
+link_skills() {
+    local agent skill name target
+    for agent in codex agents claude pi; do
+        target="$HOME/.$agent/skills"
+        if [ "$agent" = pi ]; then
+            target="$HOME/.pi/agent/skills"
+        fi
+        for skill in "$DOTFILES_DIR/$agent/skills/"*; do
+            [ -d "$skill" ] || continue
+            name="$(basename "$skill")"
+            # Keep backups outside skill discovery paths to avoid duplicates.
+            link "$skill" "$target/$name" \
+                "$HOME/.local/state/dotfiles/skills/$agent/$name"
+        done
+    done
+}
+
+if [ "${1:-}" = "--skills-only" ]; then
+    link_skills
+    exit 0
+fi
 
 echo "Setting up dotfiles from $DOTFILES_DIR"
 echo ""
@@ -60,6 +88,9 @@ link "$DOTFILES_DIR/gitconfig" "$HOME/.gitconfig"
 
 # Claude Code
 link "$DOTFILES_DIR/claude/settings.json" "$HOME/.claude/settings.json"
+
+# Local agent skills (app-managed skills stay in their original directories).
+link_skills
 
 echo ""
 echo -e "${GREEN}Done!${NC}"

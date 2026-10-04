@@ -10,6 +10,7 @@ Personal configuration files for macOS, managed with symlinks.
 - **Neovim** — AstroNvim-based config with Lazy.nvim, Treesitter, Mason, and none-ls
 - **Git** — LFS, aliases (`st`, `d`, `l`, `co`, `ci`, `cia`, `br`)
 - **Claude Code** — permissions for common CLI tools, plugins, co-author attribution disabled
+- **Agent skills** - local Codex, shared agent, and Claude skills, including their scripts and references
 
 ## Setup
 
@@ -31,3 +32,51 @@ This symlinks each config to its correct location on the filesystem. Existing fi
 | `nvim/` | `~/.config/nvim` (whole directory) |
 | `gitconfig` | `~/.gitconfig` |
 | `claude/settings.json` | `~/.claude/settings.json` |
+| `codex/skills/*` | `~/.codex/skills/*` (individual skill directories) |
+| `agents/skills/*` | `~/.agents/skills/*` (individual skill directories) |
+| `claude/skills/*` | `~/.claude/skills/*` (individual skill directories) |
+| `pi/skills/*` | `~/.pi/agent/skills/*` (individual skill directories) |
+
+Run `./setup.sh --skills-only` to install only the skills. Existing skill directories
+are backed up under `~/.local/state/dotfiles/skills/<agent>/`; setup refuses to
+overwrite an existing backup. Edit the skills here after linking them.
+
+Claude-specific skill variants are kept separately. Shared Claude skills link to
+`agents/skills/` within this repo. Add new local skills to the appropriate repo
+directory and rerun setup to link them.
+
+App-managed `synced/`, Codex `.system/`, `.trash/`, and plugin caches (such as
+`~/.codex/plugins/cache/`) remain outside this repo and are managed by their apps.
+
+## Skills on another computer
+
+Commit and push the skill files and setup changes before cloning on another computer:
+
+```bash
+git clone https://github.com/yasith/Dotfiles.git
+cd Dotfiles
+./setup.sh --skills-only
+```
+
+Use `./setup.sh` instead to install all dotfiles as well. Setup calculates the clone's
+location, so it does not need to be in the same directory on each computer. The
+agent applications and Herdr itself must be installed separately.
+
+Skill contents live in this repo; the agent directories contain symlinks to them.
+Edits through either path change the same files. On an existing computer, run
+`git pull` and `./setup.sh --skills-only` to pick up changes and link new skills.
+
+### Herdr
+
+Source: [herdrdev/herdr](https://github.com/herdrdev/herdr/tree/master/skills/herdr).
+Installed with:
+
+```bash
+npx skills@latest add herdrdev/herdr --skill herdr --global --agent codex claude-code opencode pi --yes
+```
+
+The installed shared copy is tracked at `agents/skills/herdr`. Codex and OpenCode
+discover it through `~/.agents/skills/herdr`; Claude Code and Pi have links to the
+same copy. Cloning this repo and running setup restores these links without
+downloading the skill again. The installer records upstream provenance in the
+machine-local `~/.agents/.skill-lock.json`; that file is not part of Dotfiles.

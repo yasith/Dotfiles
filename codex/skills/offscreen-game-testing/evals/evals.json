@@ -1,0 +1,29 @@
+{
+  "skill_name": "offscreen-game-testing",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Our Bevy 0.19 screenshot command starts a minimized native window and steals my focus. Add a reliable background visual iteration workflow and prove mouse selection and pause work. Explain implementation and validation.",
+      "expected_output": "Plan-only response satisfying workflow and artifact ownership constraints.",
+      "files": [],
+      "assertions": [
+        "Disables native window creation instead of relying on minimizing.",
+        "Uses real render-to-texture capture and waits for saved output.",
+        "Uses engine pointer and keyboard events with state assertions.",
+        "Keeps artifacts outside Git and isolates user preferences."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Clean up after screenshot iterations: there are tracked docs/battle.png and assets/terrain.png, your temporary target/visual-checks/run-a images, another agent\u2019s run-b images, a symlink inside run-a pointing to run-b, and a final image you just linked in chat. Explain exactly what to retain, delete, and check before committing.",
+      "expected_output": "Plan-only response satisfying workflow and artifact ownership constraints.",
+      "files": [],
+      "assertions": [
+        "Preserves tracked references and runtime art.",
+        "Preserves other agents files and does not follow symlinks for cleanup.",
+        "Retains linked final evidence at a stable path.",
+        "Audits Git status and staged paths and avoids broad destructive cleanup."
+      ]
+    }
+  ]
+}

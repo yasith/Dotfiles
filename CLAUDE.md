@@ -26,6 +26,15 @@ This creates symlinks from the repo to the filesystem. It backs up existing file
 | `nvim/` | `~/.config/nvim` (whole directory) |
 | `gitconfig` | `~/.gitconfig` |
 | `claude/settings.json` | `~/.claude/settings.json` |
+| `codex/skills/*` | `~/.codex/skills/*` (individual skill directories) |
+| `agents/skills/*` | `~/.agents/skills/*` (individual skill directories) |
+| `claude/skills/*` | `~/.claude/skills/*` (individual skill directories) |
+| `pi/skills/*` | `~/.pi/agent/skills/*` (individual skill directories) |
+
+Skills use individual directory links so app-managed `synced/`, `.system/`, and
+plugin caches stay outside the repo. Run `./setup.sh --skills-only` to link just
+skills. Original skill directories are backed up outside discovery paths under
+`~/.local/state/dotfiles/skills/<agent>/`.
 
 ## Adding or changing configs
 

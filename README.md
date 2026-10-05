@@ -111,6 +111,22 @@ is loaded with:
 claude plugin details engineering@dotfiles
 ```
 
+### Keeping vendored skills current
+
+Almost every skill here is a copy of someone else's, so `skills-provenance.json`
+records where each one came from - the upstream repo and the path inside it - and
+`scripts/check-skills.py` diffs them all against those sources:
+
+```bash
+./scripts/check-skills.py            # fetch the sources, then report
+./scripts/check-skills.py --offline  # reuse the cached checkouts
+```
+
+It keeps shallow checkouts under `~/.cache/dotfiles/skill-sources/`, prints one line
+per skill that has drifted, moved, or disappeared upstream, and exits non-zero if any
+did. Refresh a drifted skill by copying the upstream directory over the local one,
+then rerun the check. `offscreen-game-testing` is marked `local` and is skipped.
+
 ## Skills on another computer
 
 Commit and push the skill files and setup changes before cloning on another computer:
@@ -141,8 +157,8 @@ npx skills@latest add herdrdev/herdr --skill herdr --global --agent codex claude
 The installed shared copy is tracked at `agents/skills/herdr`. Codex and OpenCode
 discover it through `~/.agents/skills/herdr`; Claude Code and Pi have links to the
 same copy. Cloning this repo and running setup restores these links without
-downloading the skill again. The installer records upstream provenance in the
-machine-local `~/.agents/.skill-lock.json`; that file is not part of Dotfiles.
+downloading the skill again. Its upstream origin is recorded in
+`skills-provenance.json` along with every other vendored skill.
 
 #### Installers that refuse symlinked configs
 

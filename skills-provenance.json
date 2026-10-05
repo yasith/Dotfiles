@@ -1,0 +1,210 @@
+{
+  "comment": "Upstream origin of every vendored skill. ./scripts/check-skills.py diffs each one against its source.",
+  "sources": {
+    "mattpocock": {
+      "url": "https://github.com/mattpocock/skills.git",
+      "ref": "main"
+    },
+    "plannotator": {
+      "url": "https://github.com/backnotprop/plannotator.git",
+      "ref": "main"
+    },
+    "herdr": {
+      "url": "https://github.com/herdrdev/herdr.git",
+      "ref": "master"
+    }
+  },
+  "skills": {
+    "agents/skills/ask-matt": {
+      "source": "mattpocock",
+      "path": "skills/engineering/ask-matt"
+    },
+    "agents/skills/claude-handoff": {
+      "source": "mattpocock",
+      "path": "skills/in-progress/claude-handoff"
+    },
+    "agents/skills/code-review": {
+      "source": "mattpocock",
+      "path": "skills/engineering/code-review"
+    },
+    "agents/skills/codebase-design": {
+      "source": "mattpocock",
+      "path": "skills/engineering/codebase-design"
+    },
+    "agents/skills/diagnosing-bugs": {
+      "source": "mattpocock",
+      "path": "skills/engineering/diagnosing-bugs"
+    },
+    "agents/skills/domain-modeling": {
+      "source": "mattpocock",
+      "path": "skills/engineering/domain-modeling"
+    },
+    "agents/skills/git-guardrails-claude-code": {
+      "source": "mattpocock",
+      "path": "skills/misc/git-guardrails-claude-code"
+    },
+    "agents/skills/grill-me": {
+      "source": "mattpocock",
+      "path": "skills/productivity/grill-me"
+    },
+    "agents/skills/grill-with-docs": {
+      "source": "mattpocock",
+      "path": "skills/engineering/grill-with-docs"
+    },
+    "agents/skills/grilling": {
+      "source": "mattpocock",
+      "path": "skills/productivity/grilling"
+    },
+    "agents/skills/handoff": {
+      "source": "mattpocock",
+      "path": "skills/productivity/handoff"
+    },
+    "agents/skills/herdr": {
+      "source": "herdr",
+      "path": "skills/herdr"
+    },
+    "agents/skills/implement": {
+      "source": "mattpocock",
+      "path": "skills/engineering/implement"
+    },
+    "agents/skills/implement-spec": {
+      "source": "mattpocock",
+      "path": "skills/engineering/implement-spec"
+    },
+    "agents/skills/improve-codebase-architecture": {
+      "source": "mattpocock",
+      "path": "skills/engineering/improve-codebase-architecture"
+    },
+    "agents/skills/loop-me": {
+      "source": "mattpocock",
+      "path": "skills/in-progress/loop-me"
+    },
+    "agents/skills/migrate-to-shoehorn": {
+      "source": "mattpocock",
+      "path": "skills/misc/migrate-to-shoehorn"
+    },
+    "agents/skills/offscreen-game-testing": {
+      "source": "local"
+    },
+    "agents/skills/plannotator-annotate": {
+      "source": "plannotator",
+      "path": "apps/skills/core/plannotator-annotate"
+    },
+    "agents/skills/plannotator-compound": {
+      "source": "plannotator",
+      "path": "apps/skills/extra/plannotator-compound"
+    },
+    "agents/skills/plannotator-last": {
+      "source": "plannotator",
+      "path": "apps/skills/core/plannotator-last"
+    },
+    "agents/skills/plannotator-review": {
+      "source": "plannotator",
+      "path": "apps/skills/core/plannotator-review"
+    },
+    "agents/skills/plannotator-setup-goal": {
+      "source": "plannotator",
+      "path": "apps/skills/extra/plannotator-setup-goal"
+    },
+    "agents/skills/plannotator-visual-explainer": {
+      "source": "plannotator",
+      "path": "apps/skills/extra/plannotator-visual-explainer"
+    },
+    "agents/skills/pr": {
+      "source": "mattpocock",
+      "path": "skills/engineering/pr"
+    },
+    "agents/skills/prototype": {
+      "source": "mattpocock",
+      "path": "skills/engineering/prototype"
+    },
+    "agents/skills/research": {
+      "source": "mattpocock",
+      "path": "skills/engineering/research"
+    },
+    "agents/skills/retro": {
+      "source": "mattpocock",
+      "path": "skills/engineering/retro"
+    },
+    "agents/skills/scaffold-exercises": {
+      "source": "mattpocock",
+      "path": "skills/misc/scaffold-exercises"
+    },
+    "agents/skills/setup-matt-pocock-skills": {
+      "source": "mattpocock",
+      "path": "skills/engineering/setup-matt-pocock-skills"
+    },
+    "agents/skills/setup-pre-commit": {
+      "source": "mattpocock",
+      "path": "skills/misc/setup-pre-commit"
+    },
+    "agents/skills/setup-ts-deep-modules": {
+      "source": "mattpocock",
+      "path": "skills/in-progress/setup-ts-deep-modules"
+    },
+    "agents/skills/tdd": {
+      "source": "mattpocock",
+      "path": "skills/engineering/tdd"
+    },
+    "agents/skills/teach": {
+      "source": "mattpocock",
+      "path": "skills/productivity/teach"
+    },
+    "agents/skills/to-questionnaire": {
+      "source": "mattpocock",
+      "path": "skills/productivity/to-questionnaire"
+    },
+    "agents/skills/to-spec": {
+      "source": "mattpocock",
+      "path": "skills/engineering/to-spec"
+    },
+    "agents/skills/to-tickets": {
+      "source": "mattpocock",
+      "path": "skills/engineering/to-tickets"
+    },
+    "agents/skills/triage": {
+      "source": "mattpocock",
+      "path": "skills/engineering/triage"
+    },
+    "agents/skills/wait-what": {
+      "source": "mattpocock",
+      "path": "skills/productivity/wait-what"
+    },
+    "agents/skills/wayfinder": {
+      "source": "mattpocock",
+      "path": "skills/engineering/wayfinder"
+    },
+    "agents/skills/wizard": {
+      "source": "mattpocock",
+      "path": "skills/engineering/wizard"
+    },
+    "agents/skills/writing-beats": {
+      "source": "mattpocock",
+      "path": "skills/in-progress/writing-beats"
+    },
+    "agents/skills/writing-for-agents": {
+      "source": "mattpocock",
+      "path": "skills/productivity/writing-for-agents"
+    },
+    "agents/skills/writing-fragments": {
+      "source": "mattpocock",
+      "path": "skills/in-progress/writing-fragments"
+    },
+    "agents/skills/writing-shape": {
+      "source": "mattpocock",
+      "path": "skills/in-progress/writing-shape"
+    },
+    "claude/skills/plannotator-annotate": {
+      "source": "plannotator",
+      "path": "apps/skills/claude/plannotator-annotate"
+    },
+    "claude/skills/plannotator-last": {
+      "source": "plannotator",
+      "path": "apps/skills/claude/plannotator-last"
+    },
+    "claude/skills/plannotator-review": {
+      "source": "plannotator",
+      "path": "apps/skills/claude/plannotator-review"
+    }
+  }
+}

@@ -55,6 +55,10 @@ When adding or modifying configs in this repo:
   them from `~/.agents/skills`; Claude Code cannot see that directory, so it gets them
   through `claude/plugins/engineering`, whose `skills/` entries symlink back to
   `agents/skills/`. Never copy a skill body into a second location - add a symlink.
+- `skills-provenance.json` records the upstream repo and path for every vendored
+  skill; `./scripts/check-skills.py` diffs them against those sources and exits
+  non-zero on drift. Add an entry whenever a skill is vendored, and mark anything
+  written here as `"source": "local"`.
 - The plugin exists for namespacing, not packaging. Eight shared skills collide with
   Claude Code built-ins (`code-review`, `pr`, `research`, `teach`, `implement`,
   `triage`, `handoff`, `retro`) and twenty-six are cross-referenced by name from other

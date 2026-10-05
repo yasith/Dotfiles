@@ -30,15 +30,15 @@ This creates symlinks from the repo to the filesystem. It backs up existing file
 | `claude/settings.json` | `~/.claude/settings.json` |
 | `claude/keybindings.json` | `~/.claude/keybindings.json` |
 | `claude/hooks/herdr-agent-state.sh` | `~/.claude/hooks/herdr-agent-state.sh` |
-| `codex/skills/*` | `~/.codex/skills/*` (individual skill directories) |
 | `agents/skills/*` | `~/.agents/skills/*` (individual skill directories) |
 | `claude/skills/*` | `~/.claude/skills/*` (individual skill directories) |
 | `pi/skills/*` | `~/.pi/agent/skills/*` (individual skill directories) |
+| `claude/plugins/` | registered as the `dotfiles` marketplace (not symlinked) |
 
 Skills use individual directory links so app-managed `synced/`, `.system/`, and
 plugin caches stay outside the repo. Run `./setup.sh --skills-only` to link just
-skills. Original skill directories are backed up outside discovery paths under
-`~/.local/state/dotfiles/skills/<agent>/`.
+skills and register the marketplace. Original skill directories are backed up
+outside discovery paths under `~/.local/state/dotfiles/skills/<agent>/`.
 
 ## Adding or changing configs
 
@@ -51,6 +51,17 @@ When adding or modifying configs in this repo:
 
 ## Key conventions
 
+- `agents/skills/` is the single source of truth for shared skill bodies. Codex reads
+  them from `~/.agents/skills`; Claude Code cannot see that directory, so it gets them
+  through `claude/plugins/engineering`, whose `skills/` entries symlink back to
+  `agents/skills/`. Never copy a skill body into a second location - add a symlink.
+- The plugin exists for namespacing, not packaging. Eight shared skills collide with
+  Claude Code built-ins (`code-review`, `pr`, `research`, `teach`, `implement`,
+  `triage`, `handoff`, `retro`) and twenty-six are cross-referenced by name from other
+  skills, so renaming is off the table; `engineering:<name>` sidesteps both.
+- `setup.sh` registers the marketplace from the clone's own path via
+  `claude plugin marketplace add`, so an absolute path never enters tracked settings.
+  `claude/settings.json` enables it as `engineering@dotfiles`.
 - nvim is linked as a whole directory; fish and ghostty are linked as individual files.
 - `setup.sh` uses a `link` helper function — add new entries using the same `link "$DOTFILES_DIR/..." "$HOME/..."` pattern.
 - `README.md` must be kept in sync with any config changes (see step 4 above).

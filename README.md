@@ -11,7 +11,7 @@ Personal configuration files for macOS, managed with symlinks.
 - **Neovim** — AstroNvim-based config with Lazy.nvim, Treesitter, Mason, and none-ls
 - **Git** — LFS, aliases (`st`, `d`, `l`, `co`, `ci`, `cia`, `br`), delta pager, and a machine-local override file
 - **Claude Code** — permissions for common CLI tools, plugins, co-author attribution disabled, the Herdr `SessionStart` hook, and keybindings that free Alt+T for Herdr
-- **Agent skills** - local Codex, shared agent, and Claude skills, including their scripts and references
+- **Agent skills** - one shared set of agent skills, reaching Codex through `~/.agents/skills` and Claude Code through a repo-local `engineering` plugin, plus the Claude-specific skill variants
 - **Agent instructions** — one shared `AGENTS.md` of cross-agent rules, linked to both the generic and Claude Code locations
 
 ## Setup
@@ -71,21 +71,45 @@ it hands `alt+t` back to Herdr.
 | `claude/settings.json` | `~/.claude/settings.json` |
 | `claude/keybindings.json` | `~/.claude/keybindings.json` |
 | `claude/hooks/herdr-agent-state.sh` | `~/.claude/hooks/herdr-agent-state.sh` |
-| `codex/skills/*` | `~/.codex/skills/*` (individual skill directories) |
 | `agents/skills/*` | `~/.agents/skills/*` (individual skill directories) |
 | `claude/skills/*` | `~/.claude/skills/*` (individual skill directories) |
 | `pi/skills/*` | `~/.pi/agent/skills/*` (individual skill directories) |
+| `claude/plugins/` | registered as the `dotfiles` marketplace (not symlinked) |
 
 Run `./setup.sh --skills-only` to install only the skills. Existing skill directories
 are backed up under `~/.local/state/dotfiles/skills/<agent>/`; setup refuses to
 overwrite an existing backup. Edit the skills here after linking them.
 
-Claude-specific skill variants are kept separately. Shared Claude skills link to
-`agents/skills/` within this repo. Add new local skills to the appropriate repo
-directory and rerun setup to link them.
+`agents/skills/` holds every shared skill body. Claude-specific variants live in
+`claude/skills/`, and the entries there that need no variant are symlinks back to
+`agents/skills/`. Add new shared skills to `agents/skills/` and rerun setup.
 
 App-managed `synced/`, Codex `.system/`, `.trash/`, and plugin caches (such as
 `~/.codex/plugins/cache/`) remain outside this repo and are managed by their apps.
+
+### The `engineering` plugin
+
+Claude Code discovers skills in `~/.claude/skills` and in plugins. It does not read
+`~/.agents/skills`, so the shared skills reach it as a plugin instead:
+`claude/plugins/` is a marketplace named `dotfiles` holding one plugin, `engineering`,
+whose `skills/` entries are symlinks back to `agents/skills/`. One body per skill still
+serves both agents, and editing it in `agents/skills/` takes effect in both.
+
+A plugin rather than more `~/.claude/skills` links, because it namespaces. Eight of
+these skills share a name with a Claude Code built-in (`code-review`, `pr`, `research`,
+`teach`, `implement`, `triage`, `handoff`, `retro`), and twenty-six are cross-referenced
+by name from other skills, so renaming them to avoid the clash was not an option. As
+plugin skills they are addressed as `engineering:code-review` and leave the built-ins
+alone.
+
+`setup.sh` registers the marketplace from the clone's own path, so the plugin tracks the
+working tree and needs no push to pick up an edit. `claude/settings.json` enables it as
+`engineering@dotfiles`, which carries no path and so works on every machine. Check what
+is loaded with:
+
+```bash
+claude plugin details engineering@dotfiles
+```
 
 ## Skills on another computer
 

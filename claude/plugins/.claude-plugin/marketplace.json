@@ -1,0 +1,14 @@
+{
+  "name": "dotfiles",
+  "owner": {
+    "name": "Yasith Vidanaarachchi"
+  },
+  "description": "Plugins backed by this dotfiles repo, installed from the working tree so edits take effect without a push.",
+  "plugins": [
+    {
+      "name": "engineering",
+      "source": "./engineering",
+      "description": "Engineering workflow skills shared with Codex: module design, TDD, bug diagnosis, review, PRs, specs, tickets, and writing."
+    }
+  ]
+}

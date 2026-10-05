@@ -58,7 +58,8 @@
     "vercel@claude-plugins-official": true,
     "rust-analyzer-lsp@claude-plugins-official": true,
     "plannotator@plannotator": true,
-    "shopify-ai-toolkit@claude-plugins-official": true
+    "shopify-ai-toolkit@claude-plugins-official": true,
+    "engineering@dotfiles": true
   },
   "extraKnownMarketplaces": {
     "dagster": {
@@ -72,13 +73,19 @@
         "source": "github",
         "repo": "backnotprop/plannotator"
       }
+    },
+    "dotfiles": {
+      "source": {
+        "source": "directory",
+        "path": "/Users/yasith.vidanaarachchi/Documents/GitHub/Dotfiles/claude/plugins"
+      }
     }
   },
-  "theme": "dark",
   "effortLevel": "xhigh",
   "plansDirectory": ".claude/plans",
   "tui": "fullscreen",
   "skipDangerousModePermissionPrompt": true,
+  "theme": "dark",
   "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true
 }

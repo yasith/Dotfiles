@@ -43,7 +43,7 @@ link() {
 
 link_skills() {
     local agent skill name target
-    for agent in codex agents claude pi; do
+    for agent in agents claude pi; do
         target="$HOME/.$agent/skills"
         if [ "$agent" = pi ]; then
             target="$HOME/.pi/agent/skills"
@@ -58,8 +58,31 @@ link_skills() {
     done
 }
 
+# Claude Code reads skills from ~/.claude/skills and from plugins, never from
+# ~/.agents/skills. The shared skills reach it as the "engineering" plugin of a
+# marketplace rooted in this repo, which also namespaces skills whose names
+# collide with Claude Code built-ins (code-review, pr, research, ...).
+register_claude_marketplace() {
+    local source="$DOTFILES_DIR/claude/plugins"
+
+    if ! command -v claude >/dev/null 2>&1; then
+        echo -e "${YELLOW}[skip]${NC} claude not installed; run 'claude plugin marketplace add $source' later"
+        return
+    fi
+
+    if claude plugin marketplace list --json 2>/dev/null | grep -q '"name": "dotfiles"'; then
+        echo -e "${GREEN}[ok]${NC} marketplace dotfiles -> $source"
+        return
+    fi
+
+    echo -e "${GREEN}[add]${NC} marketplace dotfiles -> $source"
+    claude plugin marketplace add "$source" --scope user >/dev/null ||
+        echo -e "${RED}[error]${NC} could not add marketplace $source" >&2
+}
+
 if [ "${1:-}" = "--skills-only" ]; then
     link_skills
+    register_claude_marketplace
     exit 0
 fi
 
@@ -101,6 +124,7 @@ link "$DOTFILES_DIR/claude/hooks/herdr-agent-state.sh" "$HOME/.claude/hooks/herd
 
 # Local agent skills (app-managed skills stay in their original directories).
 link_skills
+register_claude_marketplace
 
 echo ""
 echo -e "${GREEN}Done!${NC}"

@@ -91,6 +91,7 @@ link "$DOTFILES_DIR/gitconfig" "$HOME/.gitconfig"
 
 # Claude Code
 link "$DOTFILES_DIR/claude/settings.json" "$HOME/.claude/settings.json"
+link "$DOTFILES_DIR/claude/hooks/herdr-agent-state.sh" "$HOME/.claude/hooks/herdr-agent-state.sh"
 
 # Local agent skills (app-managed skills stay in their original directories).
 link_skills

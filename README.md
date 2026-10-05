@@ -10,7 +10,7 @@ Personal configuration files for macOS, managed with symlinks.
 - **tmux** — `Ctrl+A` prefix, alt-key navigation, minimalist status bar, resurrect/continuum plugins
 - **Neovim** — AstroNvim-based config with Lazy.nvim, Treesitter, Mason, and none-ls
 - **Git** — LFS, aliases (`st`, `d`, `l`, `co`, `ci`, `cia`, `br`), delta pager, and a machine-local override file
-- **Claude Code** — permissions for common CLI tools, plugins, co-author attribution disabled
+- **Claude Code** — permissions for common CLI tools, plugins, co-author attribution disabled, and the Herdr `SessionStart` hook
 - **Agent skills** - local Codex, shared agent, and Claude skills, including their scripts and references
 
 ## Setup
@@ -48,6 +48,7 @@ to the tracked defaults.
 | `nvim/` | `~/.config/nvim` (whole directory) |
 | `gitconfig` | `~/.gitconfig` |
 | `claude/settings.json` | `~/.claude/settings.json` |
+| `claude/hooks/herdr-agent-state.sh` | `~/.claude/hooks/herdr-agent-state.sh` |
 | `codex/skills/*` | `~/.codex/skills/*` (individual skill directories) |
 | `agents/skills/*` | `~/.agents/skills/*` (individual skill directories) |
 | `claude/skills/*` | `~/.claude/skills/*` (individual skill directories) |

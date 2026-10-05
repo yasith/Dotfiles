@@ -27,6 +27,7 @@ This creates symlinks from the repo to the filesystem. It backs up existing file
 | `nvim/` | `~/.config/nvim` (whole directory) |
 | `gitconfig` | `~/.gitconfig` |
 | `claude/settings.json` | `~/.claude/settings.json` |
+| `claude/hooks/herdr-agent-state.sh` | `~/.claude/hooks/herdr-agent-state.sh` |
 | `codex/skills/*` | `~/.codex/skills/*` (individual skill directories) |
 | `agents/skills/*` | `~/.agents/skills/*` (individual skill directories) |
 | `claude/skills/*` | `~/.claude/skills/*` (individual skill directories) |
@@ -53,3 +54,6 @@ When adding or modifying configs in this repo:
 - `README.md` must be kept in sync with any config changes (see step 4 above).
 - `gitconfig` includes `~/.gitconfig.local` (untracked) for per-machine overrides such as
   a work commit email. Git silently skips the include when the file does not exist.
+- `claude/hooks/herdr-agent-state.sh` is installed by Herdr upstream. Reinstalling the
+  Herdr integration writes through the symlink into this repo; commit the result rather
+  than editing the script by hand.

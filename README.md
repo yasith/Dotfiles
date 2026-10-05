@@ -4,7 +4,7 @@ Personal configuration files for macOS, managed with symlinks.
 
 ## What's included
 
-- **Herdr** - prefix-free `Alt+t` for a new tab, `Alt+Shift+T` for a new Git worktree, `Alt+n`/`Alt+p` for next/previous spaces, and `Alt+j`/`Alt+k` for previous/next tabs
+- **Herdr** - prefix-free `Alt+t` for a new tab, `Alt+Shift+T` for a new Git worktree, `Alt+j`/`Alt+k` for previous/next spaces, `Alt+p`/`Alt+n` for previous/next tabs, and `Alt+Shift+J`/`Alt+Shift+K` for previous/next agents
 - **Ghostty** — terminal keybindings and macOS settings
 - **fish** — shell config with Starship prompt, conda, tmux helpers, and git worktree workflow
 - **tmux** — `Ctrl+A` prefix, alt-key navigation, minimalist status bar, resurrect/continuum plugins

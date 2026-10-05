@@ -3,10 +3,14 @@ onboarding = false
 [keys]
 new_tab = "alt+t"
 new_worktree = "alt+shift+t"
-next_workspace = "alt+n"
-previous_workspace = "alt+p"
-previous_tab = "alt+j"
-next_tab = "alt+k"
+
+# j/k walk spaces, n/p walk tabs, shift+j/shift+k walk agents.
+previous_workspace = "alt+j"
+next_workspace = "alt+k"
+previous_tab = "alt+p"
+next_tab = "alt+n"
+previous_agent = "alt+shift+j"
+next_agent = "alt+shift+k"
 
 [[keys.command]]
 key = "prefix+t"

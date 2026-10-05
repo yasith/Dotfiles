@@ -28,6 +28,7 @@ This creates symlinks from the repo to the filesystem. It backs up existing file
 | `nvim/` | `~/.config/nvim` (whole directory) |
 | `gitconfig` | `~/.gitconfig` |
 | `claude/settings.json` | `~/.claude/settings.json` |
+| `claude/keybindings.json` | `~/.claude/keybindings.json` |
 | `claude/hooks/herdr-agent-state.sh` | `~/.claude/hooks/herdr-agent-state.sh` |
 | `codex/skills/*` | `~/.codex/skills/*` (individual skill directories) |
 | `agents/skills/*` | `~/.agents/skills/*` (individual skill directories) |
@@ -61,3 +62,6 @@ When adding or modifying configs in this repo:
 - `claude/hooks/herdr-agent-state.sh` is installed by Herdr upstream. Reinstalling the
   Herdr integration writes through the symlink into this repo; commit the result rather
   than editing the script by hand.
+- Claude Code treats `alt` and `meta` as the same modifier, so its own `meta+*` defaults
+  can shadow Herdr's prefix-free `alt+*` bindings. Resolve those in
+  `claude/keybindings.json` by unbinding the Claude Code side.

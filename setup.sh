@@ -96,6 +96,7 @@ link "$DOTFILES_DIR/home/AGENTS.md" "$HOME/.claude/CLAUDE.md"
 
 # Claude Code
 link "$DOTFILES_DIR/claude/settings.json" "$HOME/.claude/settings.json"
+link "$DOTFILES_DIR/claude/keybindings.json" "$HOME/.claude/keybindings.json"
 link "$DOTFILES_DIR/claude/hooks/herdr-agent-state.sh" "$HOME/.claude/hooks/herdr-agent-state.sh"
 
 # Local agent skills (app-managed skills stay in their original directories).

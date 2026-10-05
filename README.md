@@ -10,7 +10,7 @@ Personal configuration files for macOS, managed with symlinks.
 - **tmux** — `Ctrl+A` prefix, alt-key navigation, minimalist status bar, resurrect/continuum plugins
 - **Neovim** — AstroNvim-based config with Lazy.nvim, Treesitter, Mason, and none-ls
 - **Git** — LFS, aliases (`st`, `d`, `l`, `co`, `ci`, `cia`, `br`), delta pager, and a machine-local override file
-- **Claude Code** — permissions for common CLI tools, plugins, co-author attribution disabled, and the Herdr `SessionStart` hook
+- **Claude Code** — permissions for common CLI tools, plugins, co-author attribution disabled, the Herdr `SessionStart` hook, and keybindings that free Alt+T for Herdr
 - **Agent skills** - local Codex, shared agent, and Claude skills, including their scripts and references
 - **Agent instructions** — one shared `AGENTS.md` of cross-agent rules, linked to both the generic and Claude Code locations
 
@@ -50,6 +50,13 @@ to the tracked defaults.
 
 Both links point at the same tracked file, so there is one copy to edit.
 
+### Claude Code keybindings
+
+`claude/keybindings.json` unbinds `meta+t` in the `Chat` context, which Claude Code
+uses for its thinking toggle. In a terminal `alt` and `meta` are the same key, so that
+default swallowed Herdr's `alt+t` new-tab binding before Herdr ever saw it. Unbinding
+it hands `alt+t` back to Herdr.
+
 ## Config mapping
 
 | Repo path | Target |
@@ -62,6 +69,7 @@ Both links point at the same tracked file, so there is one copy to edit.
 | `nvim/` | `~/.config/nvim` (whole directory) |
 | `gitconfig` | `~/.gitconfig` |
 | `claude/settings.json` | `~/.claude/settings.json` |
+| `claude/keybindings.json` | `~/.claude/keybindings.json` |
 | `claude/hooks/herdr-agent-state.sh` | `~/.claude/hooks/herdr-agent-state.sh` |
 | `codex/skills/*` | `~/.codex/skills/*` (individual skill directories) |
 | `agents/skills/*` | `~/.agents/skills/*` (individual skill directories) |

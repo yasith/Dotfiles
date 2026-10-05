@@ -51,3 +51,5 @@ When adding or modifying configs in this repo:
 - nvim is linked as a whole directory; fish and ghostty are linked as individual files.
 - `setup.sh` uses a `link` helper function — add new entries using the same `link "$DOTFILES_DIR/..." "$HOME/..."` pattern.
 - `README.md` must be kept in sync with any config changes (see step 4 above).
+- `gitconfig` includes `~/.gitconfig.local` (untracked) for per-machine overrides such as
+  a work commit email. Git silently skips the include when the file does not exist.

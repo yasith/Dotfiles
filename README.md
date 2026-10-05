@@ -9,7 +9,7 @@ Personal configuration files for macOS, managed with symlinks.
 - **fish** — shell config with Starship prompt, conda, tmux helpers, and git worktree workflow
 - **tmux** — `Ctrl+A` prefix, alt-key navigation, minimalist status bar, resurrect/continuum plugins
 - **Neovim** — AstroNvim-based config with Lazy.nvim, Treesitter, Mason, and none-ls
-- **Git** — LFS, aliases (`st`, `d`, `l`, `co`, `ci`, `cia`, `br`)
+- **Git** — LFS, aliases (`st`, `d`, `l`, `co`, `ci`, `cia`, `br`), delta pager, and a machine-local override file
 - **Claude Code** — permissions for common CLI tools, plugins, co-author attribution disabled
 - **Agent skills** - local Codex, shared agent, and Claude skills, including their scripts and references
 
@@ -22,6 +22,20 @@ cd Dotfiles
 ```
 
 This symlinks each config to its correct location on the filesystem. Existing files are backed up to `.bak`.
+
+### Machine-local git settings
+
+`gitconfig` ends with an include of `~/.gitconfig.local`, which is not tracked here.
+Use it for anything that differs per computer — most often the commit email on a
+work machine:
+
+```ini
+[user]
+	email = you@work.example
+```
+
+Git ignores the include when the file is absent, so machines without one fall back
+to the tracked defaults.
 
 ## Config mapping
 

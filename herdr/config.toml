@@ -2,6 +2,7 @@ onboarding = false
 
 [keys]
 new_tab = "alt+t"
+new_worktree = "alt+shift+t"
 next_workspace = "alt+n"
 previous_workspace = "alt+p"
 previous_tab = "alt+j"

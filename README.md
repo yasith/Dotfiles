@@ -97,3 +97,23 @@ discover it through `~/.agents/skills/herdr`; Claude Code and Pi have links to t
 same copy. Cloning this repo and running setup restores these links without
 downloading the skill again. The installer records upstream provenance in the
 machine-local `~/.agents/.skill-lock.json`; that file is not part of Dotfiles.
+
+#### Installers that refuse symlinked configs
+
+`tsk setup herdr` (and anything else that opens a config with `O_NOFOLLOW`) fails on
+the symlinked `~/.config/herdr/config.toml` with *"symlinks/non-directories refused:
+Too many levels of symbolic links"*. Swap in a real file, run the installer, then fold
+the result back:
+
+```bash
+rm ~/.config/herdr/config.toml
+cp herdr/config.toml ~/.config/herdr/config.toml
+tsk setup herdr
+cat ~/.config/herdr/config.toml > herdr/config.toml   # keep the installer's additions
+rm ~/.config/herdr/config.toml
+./setup.sh                                            # restore the symlink
+herdr server reload-config
+```
+
+Herdr's own `config.toml.tsk-backup-*` files stay in `~/.config/herdr/` and are not
+tracked here.

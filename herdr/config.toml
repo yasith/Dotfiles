@@ -7,6 +7,16 @@ previous_workspace = "alt+p"
 previous_tab = "alt+j"
 next_tab = "alt+k"
 
+[[keys.command]]
+key = "prefix+t"
+type = "plugin_action"
+command = "herdr-tsk.open-board"
+
+[[keys.command]]
+key = "prefix+a"
+type = "plugin_action"
+command = "herdr-tsk.quick-capture"
+
 [ui]
 status_indicators = "dots"
 

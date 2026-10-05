@@ -12,6 +12,7 @@ Personal configuration files for macOS, managed with symlinks.
 - **Git** — LFS, aliases (`st`, `d`, `l`, `co`, `ci`, `cia`, `br`), delta pager, and a machine-local override file
 - **Claude Code** — permissions for common CLI tools, plugins, co-author attribution disabled, and the Herdr `SessionStart` hook
 - **Agent skills** - local Codex, shared agent, and Claude skills, including their scripts and references
+- **Agent instructions** — one shared `AGENTS.md` of cross-agent rules, linked to both the generic and Claude Code locations
 
 ## Setup
 
@@ -37,10 +38,23 @@ work machine:
 Git ignores the include when the file is absent, so machines without one fall back
 to the tracked defaults.
 
+### Global agent instructions
+
+`home/AGENTS.md` holds the cross-agent rules and is linked to two places:
+
+- `~/AGENTS.md` — the generic location other agents read.
+- `~/.claude/CLAUDE.md` — Claude Code reads `AGENTS.md` only as *project* instructions
+  (controlled by its `instructionFiles` setting), never at user scope, so the global
+  copy has to carry the `CLAUDE.md` name. Verified on Claude Code 2.1.289: a
+  `~/.claude/AGENTS.md` is ignored while `~/.claude/CLAUDE.md` loads.
+
+Both links point at the same tracked file, so there is one copy to edit.
+
 ## Config mapping
 
 | Repo path | Target |
 |-----------|--------|
+| `home/AGENTS.md` | `~/AGENTS.md` and `~/.claude/CLAUDE.md` |
 | `ghostty/config` | `~/.config/ghostty/config` |
 | `herdr/config.toml` | `~/.config/herdr/config.toml` |
 | `fish/` | `~/.config/fish/` (individual files) |

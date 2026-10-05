@@ -18,6 +18,7 @@ This creates symlinks from the repo to the filesystem. It backs up existing file
 
 | Repo path | Symlink target |
 |-----------|---------------|
+| `home/AGENTS.md` | `~/AGENTS.md` and `~/.claude/CLAUDE.md` |
 | `ghostty/config` | `~/.config/ghostty/config` |
 | `herdr/config.toml` | `~/.config/herdr/config.toml` |
 | `fish/config.fish` | `~/.config/fish/config.fish` |
@@ -52,6 +53,9 @@ When adding or modifying configs in this repo:
 - nvim is linked as a whole directory; fish and ghostty are linked as individual files.
 - `setup.sh` uses a `link` helper function — add new entries using the same `link "$DOTFILES_DIR/..." "$HOME/..."` pattern.
 - `README.md` must be kept in sync with any config changes (see step 4 above).
+- `home/AGENTS.md` is the single source of global agent instructions. It is linked to
+  both `~/AGENTS.md` and `~/.claude/CLAUDE.md`, because Claude Code reads `AGENTS.md`
+  only as project instructions, not at user scope. Do not duplicate its contents.
 - `gitconfig` includes `~/.gitconfig.local` (untracked) for per-machine overrides such as
   a work commit email. Git silently skips the include when the file does not exist.
 - `claude/hooks/herdr-agent-state.sh` is installed by Herdr upstream. Reinstalling the

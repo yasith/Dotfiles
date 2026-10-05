@@ -89,6 +89,11 @@ link "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
 # Git
 link "$DOTFILES_DIR/gitconfig" "$HOME/.gitconfig"
 
+# Shared agent instructions. Claude Code only reads AGENTS.md as *project*
+# instructions, so the global copy must be linked as ~/.claude/CLAUDE.md.
+link "$DOTFILES_DIR/home/AGENTS.md" "$HOME/AGENTS.md"
+link "$DOTFILES_DIR/home/AGENTS.md" "$HOME/.claude/CLAUDE.md"
+
 # Claude Code
 link "$DOTFILES_DIR/claude/settings.json" "$HOME/.claude/settings.json"
 link "$DOTFILES_DIR/claude/hooks/herdr-agent-state.sh" "$HOME/.claude/hooks/herdr-agent-state.sh"
